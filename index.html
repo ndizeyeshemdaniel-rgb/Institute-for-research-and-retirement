@@ -1,0 +1,1590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Institute for Research and Retirement | IRR Rwanda</title>
+
+<meta name="description"
+content="Institute for Research and Retirement — harnessing experience, knowledge and professional expertise for sustainable development in Rwanda and beyond.">
+
+<style>
+/* =========================================================
+   IRR — INSTITUTE FOR RESEARCH AND RETIREMENT
+   MODERN RESPONSIVE WEBSITE
+========================================================= */
+
+:root{
+    --navy:#07345f;
+    --navy-dark:#032542;
+    --gold:#c99a27;
+    --gold-light:#e4c35b;
+    --white:#ffffff;
+    --cream:#f7f9fb;
+    --text:#263746;
+    --muted:#667788;
+    --shadow:0 20px 60px rgba(0,35,70,.12);
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    color:var(--text);
+    background:var(--white);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:var(--navy-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    z-index:9999;
+    transition:opacity .8s, visibility .8s;
+}
+
+.loader.hidden{
+    opacity:0;
+    visibility:hidden;
+}
+
+.loader-content{
+    text-align:center;
+    color:white;
+}
+
+.loader-logo{
+    width:75px;
+    height:75px;
+    border:3px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:auto;
+    font-size:25px;
+    font-weight:bold;
+    animation:pulse 1.5s infinite;
+}
+
+.loader p{
+    margin-top:18px;
+    letter-spacing:3px;
+    font-size:12px;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.12)}
+}
+
+/* =========================
+   NAVIGATION
+========================= */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+    transition:.4s;
+}
+
+header.scrolled{
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(15px);
+    box-shadow:0 5px 30px rgba(0,0,0,.08);
+}
+
+.navbar{
+    max-width:1400px;
+    margin:auto;
+    padding:20px 5%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.logo-symbol{
+    width:58px;
+    height:58px;
+    border-radius:50%;
+    background:var(--navy);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--gold-light);
+    font-weight:bold;
+    font-size:18px;
+    box-shadow:0 8px 25px rgba(7,52,95,.2);
+}
+
+.logo-text strong{
+    display:block;
+    font-size:25px;
+    color:var(--navy);
+    letter-spacing:1px;
+}
+
+.logo-text span{
+    display:block;
+    color:var(--gold);
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1.2px;
+    margin-top:2px;
+}
+
+nav{
+    display:flex;
+    align-items:center;
+    gap:34px;
+}
+
+nav a{
+    color:var(--navy);
+    font-weight:600;
+    font-size:14px;
+    position:relative;
+    padding:8px 0;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:0;
+    width:0;
+    height:3px;
+    background:var(--gold);
+    border-radius:5px;
+    transition:.3s;
+}
+
+nav a:hover::after,
+nav a.active::after{
+    width:100%;
+}
+
+.menu{
+    display:none;
+    font-size:28px;
+    color:var(--navy);
+    cursor:pointer;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    min-height:100vh;
+    padding:150px 6% 80px;
+    position:relative;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    background:
+        radial-gradient(circle at 90% 20%,rgba(201,154,39,.12),transparent 30%),
+        linear-gradient(120deg,#ffffff 0%,#f6f9fb 100%);
+}
+
+.hero::before{
+    content:"";
+    position:absolute;
+    width:600px;
+    height:600px;
+    border-radius:50%;
+    border:1px solid rgba(201,154,39,.15);
+    right:-250px;
+    top:-200px;
+}
+
+.hero-container{
+    width:100%;
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:43% 57%;
+    align-items:center;
+    gap:20px;
+}
+
+.hero-content{
+    position:relative;
+    z-index:3;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    color:var(--gold);
+    font-weight:bold;
+    font-size:13px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    margin-bottom:25px;
+}
+
+.badge::before{
+    content:"";
+    width:35px;
+    height:2px;
+    background:var(--gold);
+}
+
+.hero h1{
+    font-size:clamp(45px,5vw,78px);
+    line-height:1.02;
+    color:var(--navy);
+    letter-spacing:-3px;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    color:var(--gold);
+}
+
+.hero-description{
+    max-width:570px;
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.8;
+    margin-bottom:35px;
+}
+
+.buttons{
+    display:flex;
+    gap:15px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 26px;
+    border-radius:7px;
+    font-weight:bold;
+    display:inline-flex;
+    align-items:center;
+    gap:12px;
+    transition:.3s;
+}
+
+.btn-primary{
+    color:white;
+    background:var(--navy);
+    box-shadow:0 10px 30px rgba(7,52,95,.2);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    background:var(--navy-dark);
+}
+
+.btn-outline{
+    color:var(--navy);
+    border:1px solid #d9e0e7;
+    background:white;
+}
+
+.btn-outline:hover{
+    transform:translateY(-4px);
+    border-color:var(--gold);
+}
+
+/* HERO IMAGE */
+
+.hero-visual{
+    position:relative;
+    min-height:570px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.image-glow{
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(201,154,39,.12);
+    border-radius:50%;
+    filter:blur(5px);
+    animation:float 6s ease-in-out infinite;
+}
+
+.profile-photo{
+    position:relative;
+    width:min(480px,85%);
+    height:520px;
+    object-fit:cover;
+    object-position:center;
+    border-radius:35% 35% 12% 12%;
+    box-shadow:30px 35px 70px rgba(0,30,60,.22);
+    z-index:2;
+    border:8px solid rgba(255,255,255,.8);
+}
+
+.photo-label{
+    position:absolute;
+    z-index:5;
+    bottom:20px;
+    left:8%;
+    background:rgba(3,37,66,.93);
+    color:white;
+    padding:20px 25px;
+    border-left:4px solid var(--gold);
+    box-shadow:var(--shadow);
+    border-radius:5px;
+}
+
+.photo-label strong{
+    display:block;
+    font-size:19px;
+}
+
+.photo-label span{
+    display:block;
+    margin-top:5px;
+    color:#d9e3ed;
+    font-size:12px;
+}
+
+.floating-card{
+    position:absolute;
+    right:3%;
+    top:16%;
+    background:white;
+    padding:20px;
+    width:175px;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    z-index:5;
+    animation:float 5s ease-in-out infinite;
+}
+
+.floating-card .number{
+    color:var(--gold);
+    font-size:35px;
+    font-weight:bold;
+}
+
+.floating-card p{
+    font-size:12px;
+    line-height:1.5;
+    color:var(--muted);
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0)}
+    50%{transform:translateY(-15px)}
+}
+
+/* =========================
+   WAVE
+========================= */
+
+.wave{
+    position:absolute;
+    bottom:-1px;
+    left:0;
+    width:100%;
+    height:90px;
+    background:var(--navy);
+    clip-path:ellipse(75% 65% at 50% 100%);
+}
+
+/* =========================
+   VALUES
+========================= */
+
+.values{
+    background:var(--navy);
+    color:white;
+    padding:65px 6% 80px;
+}
+
+.values-grid{
+    max-width:1400px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:1px;
+}
+
+.value{
+    padding:20px 30px;
+    text-align:center;
+    border-right:1px solid rgba(255,255,255,.12);
+    transition:.4s;
+}
+
+.value:hover{
+    transform:translateY(-8px);
+}
+
+.icon{
+    width:65px;
+    height:65px;
+    border:2px solid var(--gold);
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin:0 auto 20px;
+    font-size:25px;
+}
+
+.value h3{
+    font-size:17px;
+    margin-bottom:10px;
+}
+
+.value p{
+    color:#bdcad6;
+    font-size:13px;
+    line-height:1.6;
+}
+
+/* =========================
+   GENERAL SECTIONS
+========================= */
+
+section{
+    padding:100px 6%;
+}
+
+.section-container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.section-tag{
+    color:var(--gold);
+    text-transform:uppercase;
+    letter-spacing:3px;
+    font-weight:bold;
+    font-size:12px;
+    margin-bottom:14px;
+}
+
+.section-title{
+    color:var(--navy);
+    font-size:clamp(32px,4vw,52px);
+    line-height:1.1;
+    margin-bottom:20px;
+}
+
+.section-text{
+    color:var(--muted);
+    line-height:1.8;
+    font-size:16px;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about{
+    background:#fff;
+}
+
+.about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:80px;
+    align-items:center;
+}
+
+.about-box{
+    margin-top:30px;
+    padding:25px;
+    border-left:4px solid var(--gold);
+    background:#f8fafc;
+}
+
+.about-box strong{
+    color:var(--navy);
+    font-size:18px;
+}
+
+.about-box p{
+    color:var(--muted);
+    margin-top:8px;
+    line-height:1.6;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+.stat{
+    background:white;
+    padding:35px 25px;
+    border-radius:12px;
+    box-shadow:var(--shadow);
+    border-top:4px solid var(--gold);
+}
+
+.stat h3{
+    color:var(--navy);
+    font-size:42px;
+}
+
+.stat p{
+    color:var(--muted);
+    margin-top:8px;
+}
+
+/* =========================
+   WORK
+========================= */
+
+.work{
+    background:var(--cream);
+}
+
+.cards{
+    margin-top:45px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.card{
+    background:white;
+    padding:35px;
+    border-radius:14px;
+    box-shadow:0 10px 40px rgba(0,40,80,.06);
+    position:relative;
+    overflow:hidden;
+    transition:.4s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:var(--shadow);
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:4px;
+    background:var(--gold);
+    transform:scaleX(0);
+    transform-origin:left;
+    transition:.4s;
+}
+
+.card:hover::before{
+    transform:scaleX(1);
+}
+
+.card-icon{
+    font-size:35px;
+    margin-bottom:20px;
+}
+
+.card h3{
+    color:var(--navy);
+    margin-bottom:14px;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+    font-size:14px;
+}
+
+/* =========================
+   QUOTE
+========================= */
+
+.quote-section{
+    background:var(--navy-dark);
+    color:white;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+}
+
+.quote-section::before{
+    content:"“";
+    position:absolute;
+    font-size:300px;
+    color:rgba(201,154,39,.08);
+    left:5%;
+    top:-80px;
+}
+
+.quote{
+    max-width:900px;
+    margin:auto;
+    position:relative;
+    z-index:2;
+}
+
+.quote p{
+    font-size:clamp(28px,4vw,50px);
+    line-height:1.3;
+    font-weight:bold;
+}
+
+.quote span{
+    display:block;
+    color:var(--gold-light);
+    margin-top:25px;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+/* =========================
+   MISSION
+========================= */
+
+.mission-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:30px;
+}
+
+.mission-card{
+    padding:45px;
+    border-radius:15px;
+    background:#f7f9fb;
+    border:1px solid #e7edf2;
+}
+
+.mission-card h3{
+    color:var(--navy);
+    font-size:25px;
+    margin-bottom:15px;
+}
+
+.mission-card p{
+    line-height:1.8;
+    color:var(--muted);
+}
+
+/* =========================
+   CTA
+========================= */
+
+.cta{
+    padding:80px 6%;
+    background:linear-gradient(110deg,var(--gold),#b88718);
+    color:white;
+}
+
+.cta-container{
+    max-width:1100px;
+    margin:auto;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.cta h2{
+    font-size:clamp(30px,4vw,48px);
+    margin-bottom:10px;
+}
+
+.cta p{
+    opacity:.9;
+}
+
+.cta .btn{
+    background:white;
+    color:var(--navy);
+    white-space:nowrap;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    background:#021d34;
+    color:white;
+    padding:60px 6% 25px;
+}
+
+.footer-grid{
+    max-width:1200px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr;
+    gap:50px;
+}
+
+.footer-logo{
+    font-size:30px;
+    font-weight:bold;
+    color:white;
+}
+
+.footer-brand p{
+    color:#aebdca;
+    line-height:1.7;
+    margin-top:15px;
+    max-width:420px;
+}
+
+footer h4{
+    color:var(--gold-light);
+    margin-bottom:18px;
+}
+
+footer ul{
+    list-style:none;
+}
+
+footer li{
+    margin-bottom:12px;
+    color:#aebdca;
+    font-size:14px;
+}
+
+footer li:hover{
+    color:white;
+}
+
+.copyright{
+    max-width:1200px;
+    margin:50px auto 0;
+    padding-top:25px;
+    border-top:1px solid rgba(255,255,255,.1);
+    color:#8395a5;
+    font-size:12px;
+    display:flex;
+    justify-content:space-between;
+}
+
+/* =========================
+   SCROLL ANIMATION
+========================= */
+
+.reveal{
+    opacity:0;
+    transform:translateY(40px);
+    transition:opacity .8s, transform .8s;
+}
+
+.reveal.show{
+    opacity:1;
+    transform:translateY(0);
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:950px){
+
+    nav{
+        position:absolute;
+        top:90px;
+        right:5%;
+        background:white;
+        width:230px;
+        padding:20px;
+        border-radius:10px;
+        box-shadow:var(--shadow);
+        display:none;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    nav.open{
+        display:flex;
+    }
+
+    .menu{
+        display:block;
+    }
+
+    .hero{
+        padding-top:130px;
+    }
+
+    .hero-container{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .buttons{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        min-height:500px;
+    }
+
+    .values-grid{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .about-grid,
+    .mission-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .cards{
+        grid-template-columns:1fr 1fr;
+    }
+
+    .cta-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
+    }
+}
+
+@media(max-width:600px){
+
+    .navbar{
+        padding:15px 5%;
+    }
+
+    .logo-symbol{
+        width:45px;
+        height:45px;
+    }
+
+    .logo-text strong{
+        font-size:20px;
+    }
+
+    .logo-text span{
+        font-size:8px;
+    }
+
+    .hero{
+        padding-left:5%;
+        padding-right:5%;
+    }
+
+    .hero h1{
+        letter-spacing:-1.5px;
+    }
+
+    .hero-visual{
+        min-height:430px;
+    }
+
+    .profile-photo{
+        height:420px;
+    }
+
+    .floating-card{
+        right:0;
+        top:5%;
+        width:145px;
+    }
+
+    .values-grid{
+        grid-template-columns:1fr;
+    }
+
+    .value{
+        border-right:none;
+        border-bottom:1px solid rgba(255,255,255,.1);
+        padding-bottom:30px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    .stats{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .copyright{
+        flex-direction:column;
+        gap:10px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+    <div class="loader-content">
+        <div class="loader-logo">IRR</div>
+        <p>BUILDING A BETTER FUTURE</p>
+    </div>
+</div>
+
+<!-- NAVIGATION -->
+<header id="header">
+
+<div class="navbar">
+
+<a href="#home" class="logo">
+    <div class="logo-symbol">IRR</div>
+
+    <div class="logo-text">
+        <strong>IRR</strong>
+        <span>INSTITUTE FOR RESEARCH AND RETIREMENT</span>
+    </div>
+</a>
+
+<div class="menu" id="menu">☰</div>
+
+<nav id="nav">
+    <a href="#home" class="active">Home</a>
+    <a href="#about">About Us</a>
+    <a href="#work">Our Work</a>
+    <a href="#mission">Mission</a>
+    <a href="#contact">Contact</a>
+</nav>
+
+</div>
+</header>
+
+
+<!-- HERO -->
+<section class="hero" id="home">
+
+<div class="hero-container">
+
+<div class="hero-content reveal">
+
+<div class="badge">
+    ESTABLISHED 2021 · RWANDA
+</div>
+
+<h1>
+    Experience.<br>
+    Knowledge.<br>
+    <span>A Better Future.</span>
+</h1>
+
+<p class="hero-description">
+    We harness the expertise of retirees and researchers to drive
+    research, mentorship, consultancy and innovative solutions
+    for sustainable development.
+</p>
+
+<div class="buttons">
+    <a href="#about" class="btn btn-primary">
+        Discover IRR →
+    </a>
+
+    <a href="#contact" class="btn btn-outline">
+        Work With Us
+    </a>
+</div>
+
+</div>
+
+
+<div class="hero-visual reveal">
+
+<div class="image-glow"></div>
+
+<!--
+IMPORTANT:
+Upload the Ndizeye Emmanuel photo to your GitHub repository
+inside a folder called "images".
+
+Rename it:
+ndizeye-emmanuel.jpg
+
+Then this code will display it automatically.
+-->
+
+<img
+src="images/ndizeye-emmanuel.jpg"
+alt="Ndizeye Emmanuel"
+class="profile-photo"
+>
+
+<div class="photo-label">
+    <strong>Ndizeye Emmanuel</strong>
+    <span>Institute for Research and Retirement</span>
+</div>
+
+<div class="floating-card">
+    <div class="number">2021</div>
+    <p>Established to transform experience into impact.</p>
+</div>
+
+</div>
+
+</div>
+
+<div class="wave"></div>
+
+</section>
+
+
+<!-- VALUES -->
+<section class="values">
+
+<div class="values-grid">
+
+<div class="value reveal">
+    <div class="icon">◉</div>
+    <h3>Leverage Experience</h3>
+    <p>
+        Tap into a wealth of knowledge and professional insight.
+    </p>
+</div>
+
+<div class="value reveal">
+    <div class="icon">⌕</div>
+    <h3>Advance Research</h3>
+    <p>
+        Promote impactful research that addresses real-world challenges.
+    </p>
+</div>
+
+<div class="value reveal">
+    <div class="icon">♧</div>
+    <h3>Mentor & Inspire</h3>
+    <p>
+        Empower the next generation through mentorship and skills transfer.
+    </p>
+</div>
+
+<div class="value reveal">
+    <div class="icon">↗</div>
+    <h3>Build Sustainable Impact</h3>
+    <p>
+        Contribute to sustainable development and inclusive growth.
+    </p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ABOUT -->
+<section class="about" id="about">
+
+<div class="section-container">
+
+<div class="about-grid">
+
+<div class="reveal">
+
+<div class="section-tag">Who We Are</div>
+
+<h2 class="section-title">
+    Turning experience into opportunity.
+</h2>
+
+<p class="section-text">
+    The Institute for Research and Retirement (IRR) was established
+    in 2021 to harness the knowledge, experience and professional
+    expertise of retired professionals and researchers for national
+    development.
+</p>
+
+<div class="about-box">
+    <strong>Our Purpose</strong>
+
+    <p>
+        IRR connects experienced retirees with young researchers,
+        universities, government institutions, development partners
+        and the private sector.
+    </p>
+</div>
+
+</div>
+
+
+<div class="stats reveal">
+
+<div class="stat">
+    <h3 class="counter" data-target="2021">0</h3>
+    <p>Year Established</p>
+</div>
+
+<div class="stat">
+    <h3>Rwanda</h3>
+    <p>Our Home</p>
+</div>
+
+<div class="stat">
+    <h3>5+</h3>
+    <p>Core Areas of Work</p>
+</div>
+
+<div class="stat">
+    <h3>∞</h3>
+    <p>Potential for Impact</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- OUR WORK -->
+<section class="work" id="work">
+
+<div class="section-container">
+
+<div class="section-tag reveal">
+    What We Do
+</div>
+
+<h2 class="section-title reveal">
+    Expertise that creates impact.
+</h2>
+
+<p class="section-text reveal">
+    IRR creates opportunities for retirees and researchers to continue
+    contributing to Rwanda's development through research, consultancy,
+    mentorship and capacity building.
+</p>
+
+
+<div class="cards">
+
+<div class="card reveal">
+    <div class="card-icon">🔬</div>
+    <h3>Research</h3>
+    <p>
+        Conduct applied and policy-oriented research, socioeconomic
+        studies, baseline studies, feasibility studies and impact
+        assessments.
+    </p>
+</div>
+
+
+<div class="card reveal">
+    <div class="card-icon">💼</div>
+    <h3>Consultancy</h3>
+    <p>
+        Provide strategic planning, institutional development,
+        monitoring and evaluation, feasibility studies and technical
+        advisory services.
+    </p>
+</div>
+
+
+<div class="card reveal">
+    <div class="card-icon">🤝</div>
+    <h3>Knowledge Transfer</h3>
+    <p>
+        Connect experienced professionals with young researchers and
+        junior academics through mentorship and collaborative learning.
+    </p>
+</div>
+
+
+<div class="card reveal">
+    <div class="card-icon">🎓</div>
+    <h3>Capacity Building</h3>
+    <p>
+        Organize training, workshops, seminars and conferences while
+        strengthening research and professional skills.
+    </p>
+</div>
+
+
+<div class="card reveal">
+    <div class="card-icon">🌍</div>
+    <h3>Partnerships</h3>
+    <p>
+        Establish partnerships with universities, government,
+        private-sector organizations and development partners.
+    </p>
+</div>
+
+
+<div class="card reveal">
+    <div class="card-icon">📊</div>
+    <h3>Evidence-Based Development</h3>
+    <p>
+        Support better policies and programmes through high-quality
+        research, knowledge sharing and professional expertise.
+    </p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- QUOTE -->
+<section class="quote-section">
+
+<div class="quote reveal">
+
+<p>
+    “Retirement is not the end of the road;
+    it is the beginning of impact.”
+</p>
+
+<span>THE IRR VISION</span>
+
+</div>
+
+</section>
+
+
+<!-- MISSION & VISION -->
+<section id="mission">
+
+<div class="section-container">
+
+<div class="section-tag reveal">
+    Our Direction
+</div>
+
+<h2 class="section-title reveal">
+    Vision & Mission
+</h2>
+
+
+<div class="mission-grid">
+
+<div class="mission-card reveal">
+
+<h3>Our Vision</h3>
+
+<p>
+    To become a leading centre of excellence in research,
+    consultancy and intergenerational knowledge transfer,
+    contributing to sustainable development in Rwanda and beyond.
+</p>
+
+</div>
+
+
+<div class="mission-card reveal">
+
+<h3>Our Mission</h3>
+
+<p>
+    To mobilize and apply the knowledge, experience and expertise
+    of retirees and researchers through high-quality research,
+    consultancy, capacity building and knowledge-sharing initiatives
+    that support evidence-based decision-making and sustainable
+    development.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- CTA -->
+<section class="cta" id="contact">
+
+<div class="cta-container">
+
+<div>
+    <h2>Let's build a better future.</h2>
+
+    <p>
+        Connect experience, research and the next generation.
+    </p>
+</div>
+
+<a href="mailto:info@irr-rwanda.org" class="btn">
+    Contact IRR →
+</a>
+
+</div>
+
+</section>
+
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="footer-logo">IRR</div>
+
+<p>
+    Institute for Research and Retirement — connecting experience,
+    research and the future for sustainable development in Rwanda
+    and beyond.
+</p>
+
+</div>
+
+
+<div>
+
+<h4>Explore</h4>
+
+<ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About Us</a></li>
+    <li><a href="#work">Our Work</a></li>
+    <li><a href="#mission">Mission</a></li>
+</ul>
+
+</div>
+
+
+<div>
+
+<h4>Our Focus</h4>
+
+<ul>
+    <li>Research</li>
+    <li>Consultancy</li>
+    <li>Mentorship</li>
+    <li>Capacity Building</li>
+    <li>Partnerships</li>
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="copyright">
+
+<span>© 2026 Institute for Research and Retirement. All rights reserved.</span>
+
+<span>Rwanda 🇷🇼</span>
+
+</div>
+
+</footer>
+
+
+<script>
+
+/* =========================
+   LOADING SCREEN
+========================= */
+
+window.addEventListener("load", function(){
+
+    setTimeout(function(){
+        document.getElementById("loader").classList.add("hidden");
+    },800);
+
+});
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menu = document.getElementById("menu");
+const nav = document.getElementById("nav");
+
+menu.addEventListener("click", function(){
+    nav.classList.toggle("open");
+});
+
+
+/* CLOSE MOBILE MENU */
+
+document.querySelectorAll("nav a").forEach(function(link){
+
+    link.addEventListener("click", function(){
+        nav.classList.remove("open");
+    });
+
+});
+
+
+/* =========================
+   HEADER EFFECT
+========================= */
+
+window.addEventListener("scroll", function(){
+
+    const header = document.getElementById("header");
+
+    if(window.scrollY > 50){
+        header.classList.add("scrolled");
+    }else{
+        header.classList.remove("scrolled");
+    }
+
+});
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+const observer = new IntersectionObserver(
+
+(entries) => {
+
+entries.forEach(entry => {
+
+if(entry.isIntersecting){
+
+    entry.target.classList.add("show");
+
+}
+
+});
+
+},
+
+{
+    threshold:.12
+}
+
+);
+
+document.querySelectorAll(".reveal").forEach(el => {
+    observer.observe(el);
+});
+
+
+/* =========================
+   COUNTER
+========================= */
+
+const counter = document.querySelector(".counter");
+
+const counterObserver = new IntersectionObserver(
+
+(entries) => {
+
+if(entries[0].isIntersecting){
+
+    let target = Number(counter.dataset.target);
+    let current = 0;
+
+    const speed = 25;
+
+    const update = () => {
+
+        if(current < target){
+
+            current += Math.ceil(target / 40);
+
+            if(current > target)
+                current = target;
+
+            counter.innerText = current;
+
+            setTimeout(update,speed);
+
+        }
+
+    };
+
+    update();
+
+    counterObserver.disconnect();
+
+}
+
+},
+
+{threshold:.6}
+
+);
+
+counterObserver.observe(counter);
+
+
+/* =========================
+   ACTIVE NAVIGATION
+========================= */
+
+const sections = document.querySelectorAll("section[id]");
+const links = document.querySelectorAll("nav a");
+
+window.addEventListener("scroll", () => {
+
+let current = "";
+
+sections.forEach(section => {
+
+const sectionTop = section.offsetTop - 150;
+
+if(window.scrollY >= sectionTop){
+    current = section.getAttribute("id");
+}
+
+});
+
+links.forEach(link => {
+
+link.classList.remove("active");
+
+if(link.getAttribute("href") === "#" + current){
+    link.classList.add("active");
+}
+
+});
+
+});
+
+</script>
+
+</body>
+</html>
